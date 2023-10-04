@@ -33,9 +33,9 @@ public class ProductoController {
 		return service.getAll();
 	}
 
-	@GetMapping(value = "producto/{codigoCurso}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public double getPrice(@PathVariable("codigoCurso") int codigoCurso) {
-		return service.getPrice(codigoCurso);
+	@GetMapping(value = "producto/{codigoProducto}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public double getPrice(@PathVariable("codigoProducto") int codigoProducto) {
+		return service.getPrice(codigoProducto);
 	}
 	
     @PutMapping("producto/{codigoProducto}")
