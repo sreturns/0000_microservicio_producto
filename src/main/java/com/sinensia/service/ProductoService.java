@@ -13,7 +13,7 @@ public interface ProductoService {
 
 	List<Producto> getAll();
 
-	public Producto update(int codigoProducto, Producto producto);
+	public Producto update(Producto producto);
 
 	double getPrice(int codigo_producto);
 

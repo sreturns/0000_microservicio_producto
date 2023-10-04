@@ -40,19 +40,8 @@ public class ProductoServiceImpl implements ProductoService {
 	 * @param producto
 	 * @return Producto
 	 */
-	public Producto update(int codigoProducto, Producto producto) {
-		Optional<Producto> productoExistente = dao.findById(codigoProducto);
-
-		if (productoExistente.isPresent()) {
-			Producto productoActualizado = productoExistente.get();
-			// Actualizar propiedades del producto según las necesidades
-			productoActualizado.setStock(producto.getStock());
-			// Puedes actualizar otras propiedades según tus requisitos
-
-			return dao.save(productoActualizado);
-		} else {
-			return null; // El producto no existe, podrías lanzar una excepción si lo prefieres
-		}
+	public Producto update(Producto producto) {
+		return dao.save(producto);
 
 	}
 

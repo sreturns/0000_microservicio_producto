@@ -37,14 +37,14 @@ public class ProductoController {
 	public double getPrice(@PathVariable("codigoProducto") int codigoProducto) {
 		return service.getPrice(codigoProducto);
 	}
-	
-    @PutMapping("producto/{codigoProducto}")
-    public ResponseEntity<Producto> update(@PathVariable int codigoProducto, @RequestBody Producto producto) {
-        Producto productoActualizado = service.update(codigoProducto, producto);
-        if (productoActualizado != null) {
-            return ResponseEntity.ok(productoActualizado);
-        } else {
-            return ResponseEntity.notFound().build();
-        }
-    }
+
+	@PutMapping("producto")
+	public ResponseEntity<Producto> update(@RequestBody Producto producto) {
+		Producto productoActualizado = service.update(producto);
+		if (productoActualizado != null) {
+			return ResponseEntity.ok(productoActualizado);
+		} else {
+			return ResponseEntity.notFound().build();
+		}
+	}
 }
