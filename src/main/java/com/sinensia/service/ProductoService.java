@@ -15,6 +15,6 @@ public interface ProductoService {
 
 	public Producto update(Producto producto);
 
-	double getPrice(int codigo_producto);
+	double getPrice(int codigoProducto);
 
 }

@@ -1,12 +1,12 @@
 package com.sinensia.service;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.sinensia.dao.ProductoDao;
+import com.sinensia.exceptions.ProductNotFoundException;
 import com.sinensia.model.Producto;
 
 /**
@@ -46,9 +46,15 @@ public class ProductoServiceImpl implements ProductoService {
 	}
 
 	@Override
-	public double getPrice(int codigo_producto) {
-		Producto producto = dao.findById(codigo_producto)
-				.orElseThrow(() -> new IllegalArgumentException("Codigo no valido"));
+	public double getPrice(int codigoProducto) {
+		Producto producto = null;
+
+		try {
+			producto = dao.findById(codigoProducto)
+					.orElseThrow(() -> new ProductNotFoundException("Producto no encontrado"));
+		} catch (ProductNotFoundException e) {
+			System.out.println("Error al encontrar el producto" + e);
+		}
 		return producto.getPrecioUnitario();
 	}
 
