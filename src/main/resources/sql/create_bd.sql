@@ -1,0 +1,1 @@
+CREATE SCHEMA `productos_bd` DEFAULT CHARACTER SET ascii ;
